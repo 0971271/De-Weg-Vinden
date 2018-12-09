@@ -171,13 +171,15 @@ void p(String text) {
  * @param page  de pagina dat getoond moet worden.
  */
 void drawPage(int page) {
+  if (page == PAGE_NONE) {
+    return;
+  }
+  
   if (current != prev) {
     prev = current;
   }
   
   switch(page) {
-    case PAGE_NONE:
-      break;
     case PAGE_MAIN:
       drawMainMenu();
       break;
