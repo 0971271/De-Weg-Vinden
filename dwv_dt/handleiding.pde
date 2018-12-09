@@ -45,6 +45,7 @@ void drawManualPage() {
   }
 }
 
+// TODO afbeelding moet kleiner worden
 void showManual() {
   imageName = String.format("handleiding-%d.png", manualPage);
   drawImage(imageName, 0, 0, 100, 100);
