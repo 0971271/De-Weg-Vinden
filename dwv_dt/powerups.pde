@@ -15,20 +15,20 @@ void drawPowerUpsPage() {
    
    if (mousePressed) {
     if (pu1Button.isClicked()) {
-      int rand = randomNumber(1, 2);
-      imageName = String.format("dice_%d.jpg", rand);
+      int rand = randomNumber(1, 3);
+      imageName = String.format("Power-up_%d.PNG", rand);
       showImage = true;
     }
   
     if (pu2Button.isClicked()) {
-      int rand = randomNumber(3, 4);
-      imageName = String.format("dice_%d.jpg", rand);
+      int rand = randomNumber(4, 8);
+      imageName = String.format("Power-up_%d.PNG", rand);
       showImage = true;
     }
 
     if (pu3Button.isClicked()) {
-      int rand = randomNumber(5, 6);
-      imageName = String.format("dice_%d.jpg", rand);
+      int rand = randomNumber(9,13 );
+      imageName = String.format("Power-up_%d.PNG", rand);
       showImage = true;
     }
   }
