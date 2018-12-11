@@ -43,7 +43,7 @@ class Button {
    * Tekent de knop op het scherm.
    */
   public void draw() {
-    drawButton(this.x, this.y, this.width, this.height, text);
+    drawButton(this.x, this.y, this.width, this.height, this.text);
   }
   
   /**
