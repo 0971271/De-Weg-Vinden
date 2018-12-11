@@ -74,7 +74,7 @@ void setup() {
   Map<String, Integer> menuItems = new HashMap() {{
     put("Power-ups", PAGE_POWER_UPS);
     put("Dobbelsteen", PAGE_DICE);
-    put("templates", PAGE_TEMPLATES);
+    put("Templates", PAGE_TEMPLATES);
     put("Handleiding", PAGE_MANUAL);
   }};
   
