@@ -15,19 +15,19 @@ void drawPowerUpsPage() {
    
    if (mousePressed) {
     if (pu1Button.isClicked()) {
-      int rand = Math.round(random(1, 2));
+      int rand = randomNumber(1, 2);
       imageName = String.format("dice_%d.jpg", rand);
       showImage = true;
     }
   
     if (pu2Button.isClicked()) {
-      int rand = Math.round(random(3, 4));
+      int rand = randomNumber(3, 4);
       imageName = String.format("dice_%d.jpg", rand);
       showImage = true;
     }
 
     if (pu3Button.isClicked()) {
-      int rand = Math.round(random(5, 6));
+      int rand = randomNumber(5, 6);
       imageName = String.format("dice_%d.jpg", rand);
       showImage = true;
     }
