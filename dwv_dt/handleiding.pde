@@ -2,25 +2,21 @@
  * Digitaal component voor 'De Weg Vinden'
  * Projectgroep 5
  */
- 
-Button nextPageButton = null;
-Button prevPageButton = null;
- 
+
+final int MANUAL_PAGES_COUNT = 3;
+
 int manualPage = 1;
 
 void drawManualPage() {
   text("Handleiding", width / 2, height / 10);
   
-  if (nextPageButton == null) {
-    // 0, buttonY + (gap * 6.3), width, buttonHeight * 2
-    prevPageButton = new Button(0, height - backButtonHeight, backButtonWidth, backButtonHeight, "-", PAGE_NONE);
-    nextPageButton = new Button(width - backButtonWidth, height - backButtonHeight, backButtonWidth, backButtonHeight, "+", PAGE_NONE);
-  }
+  Button prevPageButton = new Button(0, height - backButtonHeight, backButtonWidth, backButtonHeight, "-", PAGE_NONE);
+  Button nextPageButton = new Button(width - backButtonWidth, height - backButtonHeight, backButtonWidth, backButtonHeight, "+", PAGE_NONE);
   
   // eerste afbeelding laten zien om de knoppen erover te tekenen
   showManual();
   
-  if (manualPage < 3) {
+  if (manualPage < MANUAL_PAGES_COUNT) {
     nextPageButton.draw();
   }
   
@@ -45,9 +41,7 @@ void drawManualPage() {
   }
 }
 
-// TODO afbeelding moet kleiner worden
 void showManual() {
-  imageName = String.format("handleiding-%d.png", manualPage);
-  drawImage(imageName, 0, 0, 100, 100);
-  p(String.format("%d %s", manualPage, imageName));
+  imageName = String.format("handleiding-%d kopie.jpg", manualPage);
+  drawImage(imageName, 0, height / 3, 100, 100);
 }
