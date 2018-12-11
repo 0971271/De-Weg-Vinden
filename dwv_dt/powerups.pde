@@ -2,10 +2,8 @@
  * Digitaal component voor 'De Weg Vinden'
  * Projectgroep 5
  */
-
  
 void drawPowerUpsPage() {
-  
    Button pu1Button = new Button(buttonX, buttonY, buttonWidth, buttonHeight, "Zwak", -1);
    Button pu2Button = new Button(buttonX, buttonY + gap, buttonWidth, buttonHeight, "Medium", -1);
    Button pu3Button = new Button(buttonX, buttonY + (gap * 2), buttonWidth, buttonHeight, "Sterk", -1);
@@ -36,6 +34,4 @@ void drawPowerUpsPage() {
   if (showImage) {
     drawImage(imageName, width/10, height/10);
   }
-   
-   
 }
