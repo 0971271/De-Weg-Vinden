@@ -34,7 +34,7 @@ void drawPowerUpsPage() {
   }
   
   if (showImage) {
-    drawImage(imageName, 0, 0);
+    drawImage(imageName, width/10, height/10);
   }
    
    
