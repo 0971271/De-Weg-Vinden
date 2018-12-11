@@ -19,6 +19,15 @@ class Button {
     this.text = text;
     this.page = page;
   }
+  
+  public Button(float x, float y, float w, float h, String text) {
+    this.x = x;
+    this.y = y;
+    this.width = w;
+    this.height = h;
+    this.text = text;
+    this.page = PAGE_NONE;
+  }
 
   /**
    * Kijkt of er op de knop is geklikt.
