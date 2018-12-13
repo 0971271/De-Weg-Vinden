@@ -245,8 +245,8 @@ void drawImage(String imageName, float x, float y) {
  */
 void drawImage(String name, float x, float y, int w, int h) {
   PImage image = loadImage(name);
-  image(image, x, y);
   image.resize(w, h);
+  image(image, x, y);
 }
 
 /**
