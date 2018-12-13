@@ -10,6 +10,8 @@ class Button {
   private float height;
   private String text;
   private int page;
+  private int c = BUTTON_COLOR;
+  private int textColor = TEXT_COLOR;
 
   public Button(float x, float y, float w, float h, String text, int page) {
     this.x = x;
@@ -43,7 +45,7 @@ class Button {
    * Tekent de knop op het scherm.
    */
   public void draw() {
-    drawButton(this.x, this.y, this.width, this.height, this.text);
+    drawButton(this.x, this.y, this.width, this.height, this.text, this.c, this.textColor);
   }
   
   /**
@@ -57,8 +59,31 @@ class Button {
   
   /**
    * Verandert de pagina waar de knop naar leidt.
+   *
+   * @return De knop zelf.
    */
-  public void setPage(int page) {
+  public Button setPage(int page) {
     this.page = page;
+    return this;
+  }
+  
+  /**
+   * Veranderd de kleur van de knop. (gebruik 'Button.draw()' om de verandering te zien)
+   *
+   * @return De knop zelf.
+   */
+  public Button setColor(int c) {
+    this.c = c;
+    return this;
+  }
+  
+   /**
+   * Veranderd de tekstkleur van de knop. (gebruik 'Button.draw()' om de verandering te zien)
+   *
+   * @return De knop zelf.
+   */
+  public Button setTextColor(int textColor) {
+    this.textColor = textColor;
+    return this;
   }
 }

@@ -49,6 +49,7 @@ SecureRandom random;
 
 // word aan het begin uitgevoerd
 void setup() {
+  orientation(PORTRAIT);
   size(700, 700);
   // fullScreen();
   noStroke();
@@ -74,7 +75,7 @@ void setup() {
   Map<String, Integer> menuItems = new HashMap() {{
     put("Power-ups", PAGE_POWER_UPS);
     put("Dobbelsteen", PAGE_DICE);
-    put("Templates", PAGE_TEMPLATES);
+    put("templates", PAGE_TEMPLATES);
     put("Handleiding", PAGE_MANUAL);
   }};
   
@@ -117,6 +118,7 @@ void draw() {
 
   clicked = false;
 }
+
 /*
  * Wordt uitgevoerd wanneer er wordt losgelaten.
  */
@@ -217,6 +219,28 @@ void drawButton(float x, float y, float w, float h, String text) {
   
   if (text.length() > 0) {
     fill(TEXT_COLOR);
+    textAlign(CENTER);
+    text(text, x + (w / 2), y + (h / 2)); 
+  }
+}
+
+/**
+ * Tekent een knop op het scherm.
+ *
+ * @param x          positie op de x-as
+ * @param y          positie op de y-as
+ * @param w          breedte van de knop
+ * @param h          hoogte van de knop
+ * @param text       tekst van de knop, mag leeg zijn
+ * @param c          de kleur van de knp
+ * @param textColor  de tekstkleur
+ */
+void drawButton(float x, float y, float w, float h, String text, int c, int textColor) {
+  fill(c);
+  rect(x, y, w, h);
+  
+  if (text.length() > 0) {
+    fill(textColor);
     textAlign(CENTER);
     text(text, x + (w / 2), y + (h / 2)); 
   }
