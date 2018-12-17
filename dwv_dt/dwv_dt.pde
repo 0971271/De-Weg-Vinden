@@ -49,6 +49,7 @@ SecureRandom random;
 
 // word aan het begin uitgevoerd
 void setup() {
+  orientation(PORTRAIT);
   size(700, 700);
   // fullScreen();
   noStroke();
@@ -117,6 +118,7 @@ void draw() {
 
   clicked = false;
 }
+
 /*
  * Wordt uitgevoerd wanneer er wordt losgelaten.
  */
@@ -223,6 +225,28 @@ void drawButton(float x, float y, float w, float h, String text) {
 }
 
 /**
+ * Tekent een knop op het scherm.
+ *
+ * @param x          positie op de x-as
+ * @param y          positie op de y-as
+ * @param w          breedte van de knop
+ * @param h          hoogte van de knop
+ * @param text       tekst van de knop, mag leeg zijn
+ * @param c          de kleur van de knp
+ * @param textColor  de tekstkleur
+ */
+void drawButton(float x, float y, float w, float h, String text, int c, int textColor) {
+  fill(c);
+  rect(x, y, w, h);
+  
+  if (text.length() > 0) {
+    fill(textColor);
+    textAlign(CENTER);
+    text(text, x + (w / 2), y + (h / 2)); 
+  }
+}
+
+/**
  * Tekent een afbeelding op het scherm.
  *
  * @param imageName  naam van de afbeelding 
@@ -245,8 +269,8 @@ void drawImage(String imageName, float x, float y) {
  */
 void drawImage(String name, float x, float y, int w, int h) {
   PImage image = loadImage(name);
-  image(image, x, y);
   image.resize(w, h);
+  image(image, x, y);
 }
 
 /**
