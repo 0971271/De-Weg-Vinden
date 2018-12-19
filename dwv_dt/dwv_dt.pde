@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.HashMap;
 import java.security.SecureRandom;
 
-// rgb kleuren maken door sd.'final int[] BACKGROUND_COLOR = {120, 37, 183}' te gebruiken
-final int BACKGROUND_COLOR = 200;
-final int TEXT_COLOR = 60;
-final int BUTTON_COLOR = 128;
+// Color moet een getal tussen en inclusief 0- 255 zijn of het formaat '#RRGGBB' hebben, waarbij RR, GG en BB tussen en inclusief 00 - FF zijn.
+final color BACKGROUND_COLOR = #4169E1;
+final color TEXT_COLOR = #000000;
+final color BUTTON_COLOR = #f2f2f2;
 
 final int PAGE_NONE = 0;
 final int PAGE_MAIN = 1;
@@ -29,7 +29,6 @@ float backButtonX;
 float backButtonY;
 float backButtonWidth;
 float backButtonHeight;
-// TODO afbeelding van maken?
 String backButtonText = "<-";
 
 // tussenruimte (y-as)
@@ -96,7 +95,6 @@ void setup() {
  * Wordt zelf aangeroepen.
  */
 void draw() {
-  // TODO dit gaat waarschijnlijk voor problemen zorgen bij het scrollen (bijvoorbeeld bij de pagina 'templates')
   // doe niks als het scherm nog wordt aangeraakt
   if (!clicked) {
     return;
@@ -125,15 +123,6 @@ void draw() {
 void mousePressed() {
   if (clicked) {
     return;
-  }
-  
-  if (current == PAGE_MAIN) {
-    for (Button btn : navButtons) {
-      if (btn.isClicked()) {
-        current = btn.getPage();
-        return;
-      }
-    }
   }
   
   if (hasBackButton()) {
@@ -205,48 +194,6 @@ void drawPage(int page) {
 }
 
 /**
- * Tekent een knop op het scherm.
- *
- * @param x      positie op de x-as
- * @param y      positie op de y-as
- * @param w      breedte van de knop
- * @param h      hoogte van de knop
- * @param text   tekst van de knop, mag leeg zijn
- */
-void drawButton(float x, float y, float w, float h, String text) {
-  fill(BUTTON_COLOR);
-  rect(x, y, w, h);
-  
-  if (text.length() > 0) {
-    fill(TEXT_COLOR);
-    textAlign(CENTER);
-    text(text, x + (w / 2), y + (h / 2)); 
-  }
-}
-
-/**
- * Tekent een knop op het scherm.
- *
- * @param x          positie op de x-as
- * @param y          positie op de y-as
- * @param w          breedte van de knop
- * @param h          hoogte van de knop
- * @param text       tekst van de knop, mag leeg zijn
- * @param c          de kleur van de knp
- * @param textColor  de tekstkleur
- */
-void drawButton(float x, float y, float w, float h, String text, int c, int textColor) {
-  fill(c);
-  rect(x, y, w, h);
-  
-  if (text.length() > 0) {
-    fill(textColor);
-    textAlign(CENTER);
-    text(text, x + (w / 2), y + (h / 2)); 
-  }
-}
-
-/**
  * Tekent een afbeelding op het scherm.
  *
  * @param imageName  naam van de afbeelding 
@@ -259,7 +206,7 @@ void drawImage(String imageName, float x, float y) {
 }
 
 /**
- * Tekent een afbeelding op het scherm en pas de grootte aan.
+ * Tekent een afbeelding op het scherm met een aangepaste grootte.
  *
  * @param name   naam van de afbeelding 
  * @param x      positie op de x-as
@@ -276,7 +223,7 @@ void drawImage(String name, float x, float y, int w, int h) {
 /**
  * Kijkt of de pagina een terugknop heeft.
  *
- * @return boolean  true als de pagina een terugknop heeft, anders false
+ * @return  true als de pagina een terugknop heeft, anders false
  */
 boolean hasBackButton() {
   return current != PAGE_MAIN;
@@ -285,10 +232,10 @@ boolean hasBackButton() {
 /**
  * Krijg een random getal tussen 'min' en 'max'.
  *
- * @param min  hoe groot het getal minimaal mag zijn
- * @param max  hoe groot het getal maximaal mag zijn
+ * @param min  hoe groot het getal minimaal moet zijn
+ * @param max  hoe groot het getal maximaal moet zijn
  *
- * @return int  een random getal
+ * @return  een random getal
  */
 int randomNumber(int min, int max) {
   return random.nextInt(max - min + 1) + min;

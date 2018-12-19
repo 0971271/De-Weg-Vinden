@@ -10,8 +10,9 @@ class Button {
   private float height;
   private String text;
   private int page;
-  private int c = BUTTON_COLOR;
-  private int textColor = TEXT_COLOR;
+  private color backgroundColor = BUTTON_COLOR;
+  private color textColor = TEXT_COLOR;
+  private boolean visible = false;
 
   public Button(float x, float y, float w, float h, String text, int page) {
     this.x = x;
@@ -34,10 +35,12 @@ class Button {
   /**
    * Kijkt of er op de knop is geklikt.
    *
-   * @return boolean  true als er op de knop is geklikt, anders false
+   * @return  true als er op de knop is geklikt, anders false
    */
   public boolean isClicked() {
-    return (mouseX > this.x && this.x + this.width > mouseX) 
+    return mousePressed 
+        && this.visible
+        && (mouseX > this.x && this.x + this.width > mouseX) 
         && (mouseY > this.y && this.y + this.height > mouseY);
   }
 
@@ -45,13 +48,24 @@ class Button {
    * Tekent de knop op het scherm.
    */
   public void draw() {
-    drawButton(this.x, this.y, this.width, this.height, this.text, this.c, this.textColor);
+    if (!this.visible) {
+      this.visible = true;
+    }
+    
+    fill(this.backgroundColor);
+    rect(this.x, this.y, this.width, this.height);
+  
+    if (this.text.length() > 0) {
+      fill(this.textColor);
+      textAlign(CENTER);
+      text(this.text, this.x + (this.width / 2), this.y + (this.height / 2)); 
+    }
   }
   
   /**
    * Krijg de paginanummer waar de knop naar leidt.
    *
-   * @return int  de paginanummer
+   * @return  de paginanummer
    */
   public int getPage() {
     return page;
@@ -60,7 +74,9 @@ class Button {
   /**
    * Verandert de pagina waar de knop naar leidt.
    *
-   * @return De knop zelf.
+   * @param page  de nieuwe pagina waar de knop naar leidt
+   *
+   * @return  De knop zelf.
    */
   public Button setPage(int page) {
     this.page = page;
@@ -70,19 +86,23 @@ class Button {
   /**
    * Veranderd de kleur van de knop. (gebruik 'Button.draw()' om de verandering te zien)
    *
-   * @return De knop zelf.
+   * @param backgroundColor  de nieuwe achtergrondkleur van de knop
+   *
+   * @return  De knop zelf.
    */
-  public Button setColor(int c) {
-    this.c = c;
+  public Button setColor(color backgroundColor) {
+    this.backgroundColor = backgroundColor;
     return this;
   }
   
    /**
    * Veranderd de tekstkleur van de knop. (gebruik 'Button.draw()' om de verandering te zien)
    *
-   * @return De knop zelf.
+   *
+   * @param textColor  de nieuwe tekstkleur van de knop
+   * @return  De knop zelf.
    */
-  public Button setTextColor(int textColor) {
+  public Button setTextColor(color textColor) {
     this.textColor = textColor;
     return this;
   }
