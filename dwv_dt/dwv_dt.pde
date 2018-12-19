@@ -10,7 +10,7 @@ import java.security.SecureRandom;
 // Color moet een getal tussen en inclusief 0- 255 zijn of het formaat '#RRGGBB' hebben, waarbij RR, GG en BB tussen en inclusief 00 - FF zijn.
 final color BACKGROUND_COLOR = #4169E1;
 final color TEXT_COLOR = #000000;
-final color BUTTON_COLOR = #f2f2f2;
+final color BUTTON_COLOR = #F2F2F2;
 
 final int PAGE_NONE = 0;
 final int PAGE_MAIN = 1;
