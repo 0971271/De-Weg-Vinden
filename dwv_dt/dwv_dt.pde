@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.security.SecureRandom;
 
 // Color moet een getal tussen en inclusief 0- 255 zijn of het formaat '#RRGGBB' hebben, waarbij RR, GG en BB tussen en inclusief 00 - FF zijn.
-final color BACKGROUND_COLOR = #4169E1;
+final color BACKGROUND_COLOR = #4169e1;
 final color TEXT_COLOR = #000000;
-final color BUTTON_COLOR = #F2F2F2;
+final color BUTTON_COLOR = #f2f2f2;
 
 final int PAGE_NONE = 0;
 final int PAGE_MAIN = 1;
@@ -49,6 +49,7 @@ SecureRandom random;
 // word aan het begin uitgevoerd
 void setup() {
   orientation(PORTRAIT);
+  background(BACKGROUND_COLOR);
   size(700, 700);
   // fullScreen();
   noStroke();
@@ -71,18 +72,18 @@ void setup() {
   
   navButtons = new Button[4];
   
-  Map<String, Integer> menuItems = new HashMap() {{
-    put("Power-ups", PAGE_POWER_UPS);
-    put("Dobbelsteen", PAGE_DICE);
-    put("templates", PAGE_TEMPLATES);
-    put("Handleiding", PAGE_MANUAL);
+  Map<Integer, String> menuItems = new HashMap() {{
+    put(PAGE_POWER_UPS, "Power-ups");
+    put(PAGE_DICE, "Dobbelsteen");
+    put(PAGE_TEMPLATES, "Templates");
+    put(PAGE_MANUAL, "Handleiding");
   }};
   
   int i = 0;
   
-  for(Map.Entry<String, Integer> entry : menuItems.entrySet()) {
-    String text = entry.getKey();
-    int page = entry.getValue();
+  for(Map.Entry<Integer, String> entry : menuItems.entrySet()) {
+    int page = entry.getKey();
+    String text = entry.getValue();
     navButtons[i] = new Button(buttonX, buttonY + (gap * i), buttonWidth, buttonHeight, text, page);
     i++;
   }
