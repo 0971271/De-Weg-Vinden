@@ -49,6 +49,7 @@ SecureRandom random;
 // word aan het begin uitgevoerd
 void setup() {
   orientation(PORTRAIT);
+  // zorgen dat bij het opstarten de achtergrond gelijk de juiste kleur heeft
   background(BACKGROUND_COLOR);
   size(700, 700);
   // fullScreen();
