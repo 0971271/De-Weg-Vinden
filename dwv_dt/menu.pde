@@ -10,4 +10,11 @@ void drawMainMenu() {
   for (Button btn : navButtons) {
     btn.draw();
   }
+  
+  for (Button btn : navButtons) {
+      if (btn.isClicked()) {
+        current = btn.getPage();
+        return;
+      }
+  }
 }
