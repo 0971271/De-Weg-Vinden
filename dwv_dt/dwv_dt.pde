@@ -3,8 +3,6 @@
  * Projectgroep 5
  */
 
-import java.util.Map;
-import java.util.HashMap;
 import java.security.SecureRandom;
 
 // Color moet een getal tussen en inclusief 0- 255 zijn of het formaat '#RRGGBB' hebben, waarbij RR, GG en BB tussen en inclusief 00 - FF zijn.
@@ -71,23 +69,12 @@ void setup() {
   backButtonWidth = width / 10;
   backButtonHeight = height / 20;
   
-  navButtons = new Button[4];
-  
-  Map<Integer, String> menuItems = new HashMap() {{
-    put(PAGE_POWER_UPS, "Power-ups");
-    put(PAGE_DICE, "Dobbelsteen");
-    put(PAGE_TEMPLATES, "Templates");
-    put(PAGE_MANUAL, "Handleiding");
-  }};
-  
-  int i = 0;
-  
-  for(Map.Entry<Integer, String> entry : menuItems.entrySet()) {
-    int page = entry.getKey();
-    String text = entry.getValue();
-    navButtons[i] = new Button(buttonX, buttonY + (gap * i), buttonWidth, buttonHeight, text, page);
-    i++;
-  }
+  navButtons = new Button[] {
+    new Button(buttonX, buttonY, buttonWidth, buttonHeight, "Power-ups", PAGE_POWER_UPS),
+    new Button(buttonX, buttonY + (gap * 1), buttonWidth, buttonHeight, "Dobbelsteen", PAGE_DICE),
+    new Button(buttonX, buttonY + (gap * 2), buttonWidth, buttonHeight, "Templates", PAGE_TEMPLATES),
+    new Button(buttonX, buttonY + (gap * 3), buttonWidth, buttonHeight, "Handleiding", PAGE_MANUAL)
+  };
   
   backButton = new Button(backButtonX, backButtonY, backButtonWidth, backButtonHeight, backButtonText, PAGE_MAIN);
   p(String.format("Resolution: %dx%d", height, width));
