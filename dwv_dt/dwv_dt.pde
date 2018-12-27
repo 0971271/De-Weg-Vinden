@@ -234,5 +234,5 @@ boolean hasBackButton() {
  * @return  een random getal
  */
 int randomNumber(int min, int max) {
-  return random.nextInt(max - min + 1) + min;
+  return random.nextInt((max - min) + 1) + min;
 }
