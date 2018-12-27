@@ -49,11 +49,18 @@ void setup() {
   orientation(PORTRAIT);
   // zorgen dat bij het opstarten de achtergrond gelijk de juiste kleur heeft
   background(BACKGROUND_COLOR);
-  size(700, 700);
-  // fullScreen();
   noStroke();
   fill(0);
+  /*
+   * desktop
+   */
+  size(700, 700);
   textSize(18);
+  
+  /* 
+   * mobiel
+   */
+  // fullScreen()
   // textSize(36);
   
   random = new SecureRandom();
