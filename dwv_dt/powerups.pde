@@ -14,19 +14,19 @@ void drawPowerUpsPage() {
    if (mousePressed) {
     if (pu1Button.isClicked()) {
       int rand = randomNumber(1, 3);
-      imageName = String.format("Power-up_%d.PNG", rand);
+      imageName = String.format("Power-up_%d.png", rand);
       showImage = true;
     }
   
     if (pu2Button.isClicked()) {
       int rand = randomNumber(4, 8);
-      imageName = String.format("Power-up_%d.PNG", rand);
+      imageName = String.format("Power-up_%d.png", rand);
       showImage = true;
     }
 
     if (pu3Button.isClicked()) {
       int rand = randomNumber(9,13 );
-      imageName = String.format("Power-up_%d.PNG", rand);
+      imageName = String.format("Power-up_%d.png", rand);
       showImage = true;
     }
   }
