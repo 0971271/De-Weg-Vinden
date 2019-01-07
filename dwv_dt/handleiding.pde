@@ -3,7 +3,7 @@
  * Projectgroep 5
  */
 
-final int MANUAL_PAGES_COUNT = 3;
+final int MANUAL_PAGES_COUNT = 8;
 
 int manualPage = 1;
 
@@ -24,24 +24,22 @@ void drawManualPage() {
     prevPageButton.draw();
   }
   
-  if (mousePressed) {
-    if (nextPageButton.isClicked()) {
-      if (manualPage < 3) {
-        manualPage++;
-        return;
-      }
+  if (nextPageButton.isClicked()) {
+    if (manualPage < MANUAL_PAGES_COUNT) {
+      manualPage++;
+      return;
     }
-    
-    if (prevPageButton.isClicked()) {
-      if (manualPage > 1) {
-        manualPage--;
-        return;
-      }
+  }
+  
+  if (prevPageButton.isClicked()) {
+    if (manualPage > 1) {
+      manualPage--;
+      return;
     }
   }
 }
 
 void showManual() {
-  imageName = String.format("handleiding-%d kopie.jpg", manualPage);
-  drawImage(imageName, 0, height / 3, 100, 100);
+  imageName = String.format("handleiding%d.jpg", manualPage);
+  drawImage(imageName, width / 4.2, height / 20);
 }

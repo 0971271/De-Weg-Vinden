@@ -60,8 +60,8 @@ void setup() {
   /* 
    * mobiel
    */
-  // fullScreen()
-  // textSize(36);
+   // fullScreen();
+   // textSize(36);
   
   random = new SecureRandom();
   
@@ -96,10 +96,15 @@ void draw() {
     return;
   }
   
-  // laat geen afbeeldingen zien als de pagina is veranderd
   if (showImage && prev != current) {
-    imageName = "";
-    showImage = false;
+    if (showImage) {
+      imageName = "";
+      showImage = false;
+    }
+
+    if (resetTemplate) {
+      resetTemplate = false;
+    }
   }
   
   // maak de pagina 'leeg'
