@@ -96,15 +96,16 @@ void draw() {
     return;
   }
   
-  if (showImage && prev != current) {
-    if (showImage) {
-      imageName = "";
-      showImage = false;
-    }
+  if (prev != current) {
+    imageName = "";
+    showImage = false;
+  }
 
-    if (resetTemplate) {
-      resetTemplate = false;
-    }
+  if (current != PAGE_TEMPLATES) {
+    aantalSpelers = 0;
+    aantalObstakels = 0;  
+    plaatsFinish = 0;
+    resetTemplate = true;
   }
   
   // maak de pagina 'leeg'
