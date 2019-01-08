@@ -17,15 +17,15 @@ int aantalSpelers = 0;
 int aantalObstakels = 0;  
 int plaatsFinish = 0;
 
-Button knopaantalPlayers2 = null;
-Button knopaantalPlayers3 = null;
-Button knopaantalPlayers4 = null;
-Button knopaantalObstakelsweinig = null;
-Button knopaantalObstakelsnormaal = null;
-Button knopaantalObstakelsveel = null;
-Button knopplaatsFinishmidden = null;
-Button knopplaatsFinishboven = null;
-Button knopplaatsFinishhoek = null;
+Button knopaantalPlayers2;
+Button knopaantalPlayers3;
+Button knopaantalPlayers4;
+Button knopaantalObstakelsweinig;
+Button knopaantalObstakelsnormaal;
+Button knopaantalObstakelsveel;
+Button knopplaatsFinishmidden;
+Button knopplaatsFinishboven;
+Button knopplaatsFinishhoek;
 
 // eerste keer true
 boolean resetTemplate = true;
@@ -34,37 +34,38 @@ void drawTemplatesPage() {
   text("Templates", width / 2, height / 10);
 
   if (resetTemplate) {
-    knopaantalPlayers2 = new Button(buttonX + 100, buttonY, width / 12, buttonHeight, "2");
-    knopaantalPlayers3 = new Button(buttonX + 175, buttonY, width / 12, buttonHeight, "3");
-    knopaantalPlayers4 = new Button(buttonX + 250, buttonY, width / 12, buttonHeight, "4");
+    knopaantalPlayers2 = new Button(buttonX + (width / 7), buttonY - (height / 8), width / 12, buttonHeight, "2");
+    knopaantalPlayers3 = new Button(buttonX + (width / 7) + (width / 10), buttonY - (height / 8), width / 12, buttonHeight, "3");
+    knopaantalPlayers4 = new Button(buttonX + (width / 7) + ((width / 10) * 2), buttonY - (height / 8), width / 12, buttonHeight, "4");
     
-    knopaantalObstakelsweinig = new Button(buttonX + 100, buttonY+75, width / 8, buttonHeight, "Weinig");
-    knopaantalObstakelsnormaal = new Button(buttonX + 200, buttonY+75, width / 8, buttonHeight, "Normaal");
-    knopaantalObstakelsveel = new Button(buttonX + 300, buttonY+75, width / 8, buttonHeight, "Veel");
+    knopaantalObstakelsweinig = new Button(buttonX + ((width / 7)), buttonY, width / 7, buttonHeight, "Weinig");
+    knopaantalObstakelsnormaal = new Button(buttonX + ((width / 7) * 2.2), buttonY, width / 7, buttonHeight, "Normaal");
+    knopaantalObstakelsveel = new Button(buttonX + ((width / 7) * 3.4), buttonY, width / 7, buttonHeight, "Veel");
     
-    knopplaatsFinishmidden = new Button(buttonX + 100, buttonY+150, width / 6, buttonHeight, "Midden");
-    knopplaatsFinishboven = new Button(buttonX + 225, buttonY+150, width / 6, buttonHeight, "Bovenkant");
-    knopplaatsFinishhoek = new Button(buttonX + 350, buttonY+150, width / 6, buttonHeight, "Hoek");
+    knopplaatsFinishmidden = new Button(buttonX + (width / 7), buttonY + (height / 8), width / 6, buttonHeight, "Midden");
+    knopplaatsFinishboven = new Button(buttonX + ((width / 7) * 2.2), buttonY + (height / 8), width / 6, buttonHeight, "Bovenkant");
+    knopplaatsFinishhoek = new Button(buttonX + ((width / 7) * 3.4), buttonY + (height / 8), width / 6, buttonHeight, "Hoek");
 
     resetTemplate = false;
   }
 
-  text("Aantal Spelers", buttonX, buttonY + 25);
+  text("Aantal Spelers", buttonX, buttonY - (height / 8) + (buttonHeight / 2));
   knopaantalPlayers2.draw();
   knopaantalPlayers3.draw();
   knopaantalPlayers4.draw();
 
-  text("Hoeveelheid Obstakels", buttonX - 50, buttonY + 100);
+  text("Hoeveelheid Obstakels", buttonX - 50, buttonY + (buttonHeight / 2));
   knopaantalObstakelsweinig.draw();
   knopaantalObstakelsnormaal.draw();
   knopaantalObstakelsveel.draw();
 
-  text("Plek Finish", buttonX, buttonY + 175);
+  text("Plek Finish", buttonX, buttonY + (height / 8) + (buttonHeight / 2));
   knopplaatsFinishmidden.draw();
   knopplaatsFinishboven.draw();
   knopplaatsFinishhoek.draw();
 
   // als een knop van een groep is geklikt is verder kijken onnodig
+  // aantal spelers
   if (knopaantalPlayers2.isClicked()) {
     aantalSpelers = 2;
     knopaantalPlayers2.setColor(KNOP_KLIK_KLEUR);
@@ -87,6 +88,7 @@ void drawTemplatesPage() {
     knopaantalPlayers3.setColor(BUTTON_COLOR);
   }
 
+  // aantal obstakels
   if (knopaantalObstakelsweinig.isClicked()) {
     aantalObstakels = OBSTAKELS_WEINIG;
     knopaantalObstakelsweinig.setColor(KNOP_KLIK_KLEUR);
@@ -109,6 +111,7 @@ void drawTemplatesPage() {
     knopaantalObstakelsnormaal.setColor(BUTTON_COLOR);
   }
 
+  // plek finish
   if (knopplaatsFinishmidden.isClicked()) {
     plaatsFinish = FINISH_MIDDEN;
     knopplaatsFinishmidden.setColor(KNOP_KLIK_KLEUR);
@@ -133,14 +136,10 @@ void drawTemplatesPage() {
   
   if (aantalSpelers > 0 && aantalObstakels > 0 && plaatsFinish > 0) {
     imageName = String.format("bord-%d-%d-%d.jpg", aantalSpelers, aantalObstakels, plaatsFinish);
-    
-    // hoeft niet true worden als het al true is
-    if (!showImage) {
-      showImage = true;
-    }
+    showImage = true;
   }
 
   if (showImage) {
-    drawImage(imageName, 400, 100, width-400, height-400);
+    drawImage(imageName, width / 10, height * 0.48, Math.round(width * 0.8), Math.round(height * 0.48));
   }
 }
