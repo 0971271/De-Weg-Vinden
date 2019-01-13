@@ -37,6 +37,6 @@ void drawPowerUpsPage() {
   }
   
   if (showImage) {
-    drawImage(imageName, width/10, height/10);
+    drawImage(imageName, width / 10, height / 10, Math.round(width * 0.8), Math.round(height * 0.07));
   }
 }

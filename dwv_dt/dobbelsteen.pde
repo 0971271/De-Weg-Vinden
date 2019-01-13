@@ -2,13 +2,13 @@
  * Digitaal component voor 'De Weg Vinden'
  * Projectgroep 5
  */
- 
+
 String imageName = "";
 boolean showImage = false;
 
 void drawDicePage() {  
   text("Dobbelsteen", width / 2, height / 10);
-  Button rollButton = new Button(0, height - buttonHeight * 2, width, buttonHeight * 2, "Gooi", PAGE_NONE);
+  Button rollButton = new Button(0, height - buttonHeight * 2, width, buttonHeight * 2, "Gooi");
   rollButton.draw();
   
   if (mousePressed) {
@@ -20,6 +20,6 @@ void drawDicePage() {
   }
   
   if (showImage) {
-    drawImage(imageName, width / 2, height / 3);
+    drawImage(imageName, width / 4, height / 3, width / 2, height / 4);
   }
 }
