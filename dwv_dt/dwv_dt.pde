@@ -1,6 +1,13 @@
 /**
  * Digitaal component voor 'De Weg Vinden'
  * Projectgroep 5
+ *
+ * Giovanni Zwaan
+ * Rahul Udaya
+ * Lars Westerwoudt
+ * Julian Valorian
+ * Raymon van Veggel
+ * Michael Zell
  */
 
 import java.security.SecureRandom;
@@ -54,14 +61,14 @@ void setup() {
   /*
    * desktop
    */
-  size(700, 700);
-  textSize(18);
+  //size(700, 700);
+  //textSize(18);
   
   /* 
    * mobiel
    */
-   // fullScreen();
-   // textSize(36);
+    fullScreen();
+    textSize(36);
   
   random = new SecureRandom();
   
@@ -99,6 +106,7 @@ void draw() {
   if (prev != current) {
     imageName = "";
     showImage = false;
+    manualPage = 1;
   }
 
   if (current != PAGE_TEMPLATES) {

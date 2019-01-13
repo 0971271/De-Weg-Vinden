@@ -1,6 +1,13 @@
 /**
  * Digitaal component voor 'De Weg Vinden'
  * Projectgroep 5
+ *
+ * Giovanni Zwaan
+ * Rahul Udaya
+ * Lars Westerwoudt
+ * Julian Valorian
+ * Raymon van Veggel
+ * Michael Zell
  */
 
 final color KNOP_KLIK_KLEUR = #72878a;
