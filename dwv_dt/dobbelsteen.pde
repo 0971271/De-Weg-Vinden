@@ -8,7 +8,7 @@ boolean showImage = false;
 
 void drawDicePage() {  
   text("Dobbelsteen", width / 2, height / 10);
-  Button rollButton = new Button(0, height - buttonHeight * 2, width, buttonHeight * 2, "Knop", PAGE_NONE);
+  Button rollButton = new Button(0, height - buttonHeight * 2, width, buttonHeight * 2, "Gooi", PAGE_NONE);
   rollButton.draw();
   
   if (mousePressed) {
