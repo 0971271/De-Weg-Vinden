@@ -3,7 +3,7 @@
  * Projectgroep 5
  *
  * Giovanni Zwaan
- * Rahul Udaya
+ * Rahul Udhaya
  * Lars Westerwoudt
  * Julian Valorian
  * Raymon van Veggel
