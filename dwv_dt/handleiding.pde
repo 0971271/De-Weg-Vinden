@@ -2,8 +2,8 @@
  * Digitaal component voor 'De Weg Vinden'
  * Projectgroep 5
  *
-* Giovanni Zwaan
- * Rahul Udaya
+ * Giovanni Zwaan
+ * Rahul Udhaya
  * Lars Westerwoudt
  * Julian Valorian
  * Raymon van Veggel
