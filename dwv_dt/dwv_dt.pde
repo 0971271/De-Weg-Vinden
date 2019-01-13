@@ -61,14 +61,14 @@ void setup() {
   /*
    * desktop
    */
-  //size(700, 700);
-  //textSize(18);
+  size(700, 700);
+  textSize(18);
   
   /* 
    * mobiel
    */
-    fullScreen();
-    textSize(36);
+  // fullScreen();
+  // textSize(36);
   
   random = new SecureRandom();
   
